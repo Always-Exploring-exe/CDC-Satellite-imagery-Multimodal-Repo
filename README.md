@@ -3,6 +3,7 @@
 This repository contains a **two-stage multimodal pipeline** for house price prediction:
 - **Tabular XGBoost baseline (Model 1)** on `train_tabular.csv` / `test_tabular.csv`
 - **Fusion CNN + MLP model (Model 2)** that combines NAIP satellite imagery with tabular features
+- **For Reproducibility Run 01 ,02 ...05 in order along with the test_tabular.csv and train_tabular.csv for easy reproducibility**
 
 The goal is to build a strong, reproducible baseline and then refine it with a multimodal model.
 
@@ -138,3 +139,4 @@ pip install -r requirements.txt
 - `other_fusion_2nd_models_and_weights/` is intentionally untouched and can be considered a sandbox for alternative architectures.
 - Each notebook contains a single markdown cell at the top explaining what the code does.
 - The naip_images folder has not been provided in this repo here , as files are too large for git , please access them and name them in as properly under ./naip_images/{train/test}_224/{image_id}.tif though this is already handled by the fetching pipeline.
+
