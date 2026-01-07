@@ -1,0 +1,15 @@
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+xgboost
+torch
+torchvision
+rasterio
+tqdm
+requests
+pyproj
+shap
+pytorch-grad-cam
+opencv-python
