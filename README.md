@@ -1,7 +1,7 @@
 # CDC Satellite Imagery House Price Prediction
 
 This repository contains a **two-stage multimodal pipeline** for house price prediction:
-- **final_submission.csv contains final prediction price values on test_data for evaluation**
+- **24117002_final.csv contains final prediction price values on test_data for evaluation**
 - **For reproducibility one does not need all the extra csv  ( apart from train_tabular.csv and test_tabular.csv) just running the notebooks labelled 01 , 02 ...04 in order 05 is optional explainability codebase , along with train_tabular.csv and test_tabular.csv please ensure 16gb of vram on gpu**
 - **Tabular XGBoost baseline (Model 1)** on `train_tabular.csv` / `test_tabular.csv`
 - **Fusion CNN + MLP model (Model 2)** that combines NAIP satellite imagery with tabular features
@@ -33,7 +33,7 @@ The naip_images folder has not been provided in this repo here , as files are to
   Trains a multimodal fusion model that combines satellite imagery with tabular features. Uses a ResNet50 backbone for image features and an MLP for tabular features, then fuses them to predict log-residuals relative to the XGBoost baseline. Saves the best model weights to `sota_fusion_best.pth`.
 
 - **`04_make_test_predictions.ipynb`**  
-  Generates final predictions on the test set by loading the trained fusion model and combining it with XGBoost baseline predictions. Produces the final submission file `final_submission.csv` with predicted house prices.
+  Generates final predictions on the test set by loading the trained fusion model and combining it with XGBoost baseline predictions. Produces the final submission file `24117002_final.csv` with predicted house prices.
 
 - **`05_explainability.ipynb`**  
   Provides explainability analysis for the fusion model using Grad-CAM (visualizes which regions of satellite images the model focuses on) and SHAP (quantifies the contribution of each tabular feature). Results are saved to the `explainability_results/` directory.
@@ -122,12 +122,12 @@ pip install -r requirements.txt
 2. Open **`04_make_test_predictions.ipynb`** and run all cells.
 
 **Outputs:**
-- `final_submission.csv` (final competition-style submission)
+- `24117002_final.csv` (final competition-style submission)
 
 ### Step 5: Explainability Analysis (Optional)
 
 1. Open **`05_explainability.ipynb`**.
-2. The notebook automatically loads target IDs from `final_submission.csv` (or you can set `TARGET_IDS` manually).
+2. The notebook automatically loads target IDs from `24117002_final.csv` (or you can set `TARGET_IDS` manually).
 3. Run all cells to generate:
    - Grad-CAM heatmaps in `explainability_results/`
    - SHAP summaries for tabular features
@@ -141,6 +141,7 @@ pip install -r requirements.txt
 - `other_fusion_2nd_models_and_weights/` is intentionally untouched and can be considered a sandbox for alternative architectures.
 - Each notebook contains a single markdown cell at the top explaining what the code does.
 - The naip_images folder has not been provided in this repo here , as files are too large for git , please access them and name them in as properly under ./naip_images/{train/test}_224/{image_id}.tif though this is already handled by the fetching pipeline.
+
 
 
 
